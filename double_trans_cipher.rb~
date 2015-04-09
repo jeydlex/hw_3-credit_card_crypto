@@ -57,8 +57,8 @@ module DoubleTranspositionCipher
 	 original_end = (new_blocks.transpose).to_a
 	
 	 # 4.2 this assigns a random order to the columns based on the key	
-	 #original_doc = original_end.shuffle(random: Random.new(key))
-	 original_doc = original_end.rotate(-key)
+	 original_doc = original_end.unshuffle(random: Random.new(key))
+	 #original_doc = original_end.rotate(-key)
 	 original_doc.join.gsub('|','')
 	 
   end

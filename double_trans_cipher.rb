@@ -1,3 +1,4 @@
+require_relative './Array'
 module DoubleTranspositionCipher
   def self.encrypt(document, key)
     # 1. find number of rows/cols such that matrix is almost square
