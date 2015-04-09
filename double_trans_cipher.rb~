@@ -1,9 +1,9 @@
 module DoubleTranspositionCipher
   def self.encrypt(document, key)
      # 1. find number of rows/cols such that matrix is almost square
-     
-     rows = Math.sqrt(document.length).round #for making almost a perfect square
-     cols = (document.length/rows.to_f).round #for finding the number of columns of the matrix
+
+     rows = Math.sqrt(document.length).round # for making almost a perfect square
+     cols = (document.length / rows.to_f).round # for finding the number of columns of the matrix
 
      # 2. break plaintext into evenly sized blocks
      doc_blocks = document.split('').map(&:to_s).each_slice(cols).to_a
