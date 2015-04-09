@@ -20,15 +20,15 @@ module DoubleTranspositionCipher
      #4. sort columns of each row in predictibly random way
 	
 	 # 4.1. transpose columns and make them array	
-	 sorted_columns = (new_blocks.transpose()).to_a 
+	 sorted_columns = (new_blocks.transpose).to_a 
 	
 	 # 4.2 this assigns a random order to the columns based on the key	
 	 #new_sorted_columns = sorted_columns.shuffle(random: Random.new(key))
 	 new_sorted_columns = sorted_columns.rotate(key)
 	 
 	 # 4.3. final matrix
-	 final_matrix = (new_sorted_columns.transpose()).to_a	 
-	 final_matrix.join
+	 final_matrix = (new_sorted_columns.transpose).to_a	 
+     final_matrix.join.gsub! '|' ''
 
   end
 
@@ -43,7 +43,7 @@ module DoubleTranspositionCipher
      doc_blocks = ciphertext.split('').map(&:to_s).each_slice(cols).to_a
      
      # 3. get the original columns of the array
-     doc_blocks_mat = (doc_blocks.transpose()).to_a
+     doc_blocks_mat = (doc_blocks.transpose).to_a
      
      #4. sort columns of each row in predictibly random way -SHUFFLE IS NOT PREDICTABLE, IT IS RANDOM
 	 #new_blocks = doc_blocks_mat.shuffle(random: Random.new(key))
