@@ -38,7 +38,11 @@ module DoubleTranspositionCipher
 
      rows = Math.sqrt(ciphertext.length).round #for making almost a perfect square
      cols = (ciphertext.length/rows.to_f).round #for finding the number of columns of the matrix
-
+     
+     while ciphertext.length % cols != 0 do # 
+     ciphertext = ciphertext + "|"
+     end
+     
      # 2. break plaintext into evenly sized blocks
      doc_blocks = ciphertext.split('').map(&:to_s).each_slice(cols).to_a
      
@@ -50,12 +54,12 @@ module DoubleTranspositionCipher
 	 new_blocks = doc_blocks_mat.rotate(-key)
 	
 	 # 4.1. transpose columns and make them array	
-	 original_end = (new_blocks.transpose()).to_a
+	 original_end = (new_blocks.transpose).to_a
 	
 	 # 4.2 this assigns a random order to the columns based on the key	
 	 #original_doc = original_end.shuffle(random: Random.new(key))
 	 original_doc = original_end.rotate(-key)
-	 return original_doc.join
-
+	 original_doc.join.gsub! '|' ''
+	 
   end
 end
