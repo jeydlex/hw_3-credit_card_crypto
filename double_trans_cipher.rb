@@ -7,7 +7,8 @@ module DoubleTranspositionCipher
      cols = (document.length/rows.to_f).round #for finding the number of columns of the matrix
      
      while document.length % cols != 0 do
-     document = document & "|"
+     document = document + "|"
+     end
      
      # 2. break plaintext into evenly sized blocks
      doc_blocks = document.split('').map(&:to_s).each_slice(cols).to_a
