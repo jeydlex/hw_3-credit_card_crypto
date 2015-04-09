@@ -28,7 +28,7 @@ module DoubleTranspositionCipher
 	 
 	 # 4.3. final matrix
 	 final_matrix = (new_sorted_columns.transpose()).to_a	 
-	 return final_matrix.join
+	 final_matrix.join
 
   end
 
