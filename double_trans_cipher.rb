@@ -28,7 +28,7 @@ module DoubleTranspositionCipher
 	 
 	 # 4.3. final matrix
 	 final_matrix = (new_sorted_columns.transpose).to_a	 
-     final_matrix.join.gsub! '|' ''
+     final_matrix.join.gsub('|','')
 
   end
 
@@ -59,7 +59,7 @@ module DoubleTranspositionCipher
 	 # 4.2 this assigns a random order to the columns based on the key	
 	 #original_doc = original_end.shuffle(random: Random.new(key))
 	 original_doc = original_end.rotate(-key)
-	 original_doc.join.gsub! '|' ''
+	 original_doc.join.gsub('|','')
 	 
   end
 end

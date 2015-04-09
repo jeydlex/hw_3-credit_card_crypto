@@ -54,12 +54,12 @@ module DoubleTranspositionCipher
 	 new_blocks = doc_blocks_mat.rotate(-key)
 	
 	 # 4.1. transpose columns and make them array	
-	 original_end = (new_blocks.transpose()).to_a
+	 original_end = (new_blocks.transpose).to_a
 	
 	 # 4.2 this assigns a random order to the columns based on the key	
 	 #original_doc = original_end.shuffle(random: Random.new(key))
 	 original_doc = original_end.rotate(-key)
-	 return original_doc.join
-
+	 original_doc.join.gsub! '|' ''
+	 
   end
 end
