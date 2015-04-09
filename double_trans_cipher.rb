@@ -1,6 +1,7 @@
 module DoubleTranspositionCipher
   def self.encrypt(document, key)
     # 1. find number of rows/cols such that matrix is almost square
+
      
      rows = Math.sqrt(document.length).round #for making almost a perfect square
      cols = (document.length/rows.to_f).round #for finding the number of columns of the matrix
@@ -24,11 +25,13 @@ module DoubleTranspositionCipher
 	 # 4.3. final matrix
 	 final_matrix = (new_sorted_columns.transpose()).to_a	 
 	 return final_matrix.join
+
   end
 
   def self.decrypt(ciphertext, key)
     # TODO: FILL THIS IN!
     # 1. find number of rows/cols such that matrix is almost square
+
      rows = Math.sqrt(ciphertext.length).round #for making almost a perfect square
      cols = (ciphertext.length/rows.to_f).round #for finding the number of columns of the matrix
 
@@ -49,5 +52,6 @@ module DoubleTranspositionCipher
 	 #original_doc = original_end.shuffle(random: Random.new(key))
 	 original_doc = original_end.rotate(-key)
 	 return original_doc.join
+
   end
 end
